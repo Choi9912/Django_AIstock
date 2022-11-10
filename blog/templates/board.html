@@ -1,0 +1,97 @@
+{% load bootstrap4 %}
+{% block content %}<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://bootstrapk.com/favicon.ico">
+    <title>[Python Flask] 웹 페이지 만들기 - kkamikoon</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+    <style>
+        body{
+            background-image: url("static/css/stock.png");
+        }
+    </style>
+</head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/">주식예측프로그램</a>
+                   </div>
+                <div id="navbar" class="collapse navbar-collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+                        <li><a href="APP/index">주식예측</a></li>
+                        <li><a href="accounts/login">게시판</a></li>
+                    </ul>
+                </div><!--/.nav-collapse --></div>
+        </nav>
+<div style="width:1200px; margin:0px auto;">
+    <h2 style="text-align:center;">게시판</h2><br>
+    {% if board %}
+    <table style="text-align:center; width:1200px; border:1px solid black;" class="table">
+        <thead>
+            <tr class="th_color">
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>작성자</th>
+                <th>수정하기</th>
+                <th>삭제하기</th>
+            </tr>
+        </thead>
+            {% for board_list in board %}
+            <tbody>
+                <tr class="td_color" >
+                    <td>{{ board_list.pk }}</td>
+                    <td>{{ board_list.title }}</td>
+                    <td>{{ board_list.content }}</td>
+                    <td>{{ board_list.user }}</td>
+                    <td><button class="btn btn-secondary btn-sm rounded-pill" onclick="location.href='/edit/{{board_list.pk}}'">수정</button></td>
+                    <td><button class="btn btn-danger btn-sm rounded-pill" onclick="location.href='/delete/{{board_list.pk}}'">삭제</button></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+    </table>
+    {% endif %}
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'home' %}">주식예측프로그램</a>
+                   </div>
+                <div id="navbar" class="collapse navbar-collapse pull-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'index' %}">주식예측</a></li>
+                        <li><a href="{% url 'board' %}">게시판</a></li>
+                        <li><a href="{% url 'crawl' %}">팁</a></li>
+                        <li><a href="http://127.0.0.1:8000/">로그아웃</a></li>
+                    </ul>
+                </div><!--/.nav-collapse --></div>
+        </nav>
+    <div style="width:500px; margin:0px auto;">
+        <form action="" method="POST" style="max-width:500px;">
+            {% csrf_token %}
+            {% bootstrap_form boardForm %}
+            <button type="submit" class="btn btn-primary rounded-pill col-12">POST</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
