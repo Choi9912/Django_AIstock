@@ -92,7 +92,7 @@ def predict(request):
     y_train = y_train.values
     y_test = y_test.values
 
-    # LSTM 모델에 맞게 데이터 셋 변형
+    # LSTM 모델에 맞게 데이터 셋 변형(data size, time_steps ,feautures)
     x_train_t = x_train.reshape(x_train.shape[0], x5, 1)
     x_test_t = x_test.reshape(x_test.shape[0], x5, 1)
 
@@ -100,9 +100,9 @@ def predict(request):
     # Sequeatial Model
     model = Sequential()
     # 첫번째 LSTM 레이어
-    model.add(LSTM(x5, return_sequences=True, input_shape=(x5, 1)))
+    model.add(LSTM(64, return_sequences=True, input_shape=(x5, 1)))
     # 두번째 LSTM 레이어
-    model.add(LSTM(42, return_sequences=False))
+    model.add(LSTM(32, return_sequences=False))
     # 예측값 1개
     model.add(Dense(1, activation='linear'))
     # 손실함수 지정 - 예측 값과 실제 값의 차이를 계산한다. MSE가 사용된다.
