@@ -26,7 +26,7 @@ def plot_stock_data(df):
     plt.xlabel('Date', fontsize=18)
     plt.ylabel('Mid Price', fontsize=18)
 
-def prepare_data(stock_data, split_date, x5):
+def prepare_data(stock_data, split_date, x5_short, x5_long):
     stockPriceClose = stock_data[['Close']]
     train_data = pd.DataFrame(stockPriceClose.loc[:split_date, ['Close']])
     test_data = pd.DataFrame(stockPriceClose.loc[split_date:, ['Close']])
@@ -38,19 +38,28 @@ def prepare_data(stock_data, split_date, x5):
     train_sc_df = pd.DataFrame(train_data_sc, columns=['Scaled'], index=train_data.index)
     test_sc_df = pd.DataFrame(test_data_sc, columns=['Scaled'], index=test_data.index)
 
-    for i in range(1, (x5+1)):
+    for i in range(1, (max(x5_short, x5_long)+1)):
         train_sc_df['Scaled_{}'.format(i)] = train_sc_df['Scaled'].shift(i)
         test_sc_df['Scaled_{}'.format(i)] = test_sc_df['Scaled'].shift(i)
 
-    x_train = train_sc_df.dropna().drop('Scaled', axis=1).values
-    y_train = train_sc_df.dropna()[['Scaled']].values
-    x_test = test_sc_df.dropna().drop('Scaled', axis=1).values
-    y_test = test_sc_df.dropna()[['Scaled']].values
+    x_train_short = train_sc_df.dropna().drop('Scaled', axis=1).iloc[:, :x5_short].values
+    y_train_short = train_sc_df.dropna()[['Scaled']].values
+    x_test_short = test_sc_df.dropna().drop('Scaled', axis=1).iloc[:, :x5_short].values
+    y_test_short = test_sc_df.dropna()[['Scaled']].values
 
-    x_train_t = x_train.reshape(x_train.shape[0], x5, 1)
-    x_test_t = x_test.reshape(x_test.shape[0], x5, 1)
+    x_train_long = train_sc_df.dropna().drop('Scaled', axis=1).iloc[:, :x5_long].values
+    y_train_long = train_sc_df.dropna()[['Scaled']].values
+    x_test_long = test_sc_df.dropna().drop('Scaled', axis=1).iloc[:, :x5_long].values
+    y_test_long = test_sc_df.dropna()[['Scaled']].values
 
-    return x_train_t, y_train, x_test_t, y_test
+    x_train_short_t = x_train_short.reshape(x_train_short.shape[0], x5_short, 1)
+    x_test_short_t = x_test_short.reshape(x_test_short.shape[0], x5_short, 1)
+
+    x_train_long_t = x_train_long.reshape(x_train_long.shape[0], x5_long, 1)
+    x_test_long_t = x_test_long.reshape(x_test_long.shape[0], x5_long, 1)
+
+    return (x_train_short_t, y_train_short, x_test_short_t, y_test_short,
+            x_train_long_t, y_train_long, x_test_long_t, y_test_long)
 
 def create_lstm_model(x5):
     model = Sequential()
@@ -84,15 +93,28 @@ def predict(request):
     x2 = request.GET.get('x2', '0')
     x3 = request.GET.get('x3', '0')
     x4 = request.GET.get('x4', '0')
-    x5 = int(request.GET.get('x5', '0'))
+    x5_short = int(request.GET.get('x5_short', '0'))
+    x5_long = int(request.GET.get('x5_long', '0'))
+    prediction_type = request.GET.get('prediction_type', 'short')
 
     stock_data = get_stock_data(x1, x2, x3, x4)
     plot_stock_data(stock_data)
 
     split_date = pd.Timestamp('01-01-2019')
-    x_train_t, y_train, x_test_t, y_test = prepare_data(stock_data, split_date, x5)
+    (x_train_short_t, y_train_short, x_test_short_t, y_test_short,
+     x_train_long_t, y_train_long, x_test_long_t, y_test_long) = prepare_data(stock_data, split_date, x5_short, x5_long)
 
-    model = create_lstm_model(x5)
+    if prediction_type == 'short':
+        model = create_lstm_model(x5_short)
+        x_train_t = x_train_short_t
+        y_train = y_train_short
+        x_test_t = x_test_short_t
+    else:
+        model = create_lstm_model(x5_long)
+        x_train_t = x_train_long_t
+        y_train = y_train_long
+        x_test_t = x_test_long_t
+
     model = train_lstm_model(model, x_train_t, y_train)
 
     y_test_df, y_pred_df = predict_stock_price(model, x_test_t, test_sc_df)
