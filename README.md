@@ -7,6 +7,13 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 - 프로젝트 이름 : LSTM모델을 이용한 주식 예측 프로그램 웹 개발
 - 프로젝트 기간 : 2022.09.01~2022.10.15
 - 멤버 : 최규성(팀장), 김소명, 오우준, 임수한
+
+# 파일명
+- APP : 주식예측
+- Acoounts : 로그인 및 회원가입
+- blog : 게시판
+- crawl : 크롤링
+  
 # Stacks
 ## Envoronment
 <img src="https://img.shields.io/badge/Pycharm-E34F26?style=for-the-badge&logo=Pycharm&logoColor=white">  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
