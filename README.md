@@ -15,7 +15,7 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 - crawl : 크롤링
   
 # Stacks
-## Envoronment
+## Environment
 <img src="https://img.shields.io/badge/Pycharm-E34F26?style=for-the-badge&logo=Pycharm&logoColor=white">  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 
 ## Config
