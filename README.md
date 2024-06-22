@@ -41,5 +41,18 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 
   <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white"> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white"> 
 
+# Screen Composition
+
+## Main Page
+![Main Page](https://github.com/yourusername/yourrepository/blob/main/path/to/your/image1.png)
+
+## Introduction Page
+![Introduction Page](https://github.com/yourusername/yourrepository/blob/main/path/to/your/image2.png)
+
+## Course Introduction Page
+![Course Introduction Page](https://github.com/yourusername/yourrepository/blob/main/path/to/your/image3.png)
+
+## Lecture Video Page
+![Lecture Video Page](https://github.com/yourusername/yourrepository/blob/main/path/to/your/image4.png)
 
 
