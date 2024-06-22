@@ -45,8 +45,8 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 
 | 메인 페이지 | 주식 예측 프로그램 |
 | --- | --- |
-| ![메인 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/9a2cf9ba-a447-4963-b9fb-df2f11adda68) | ![소개 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/ff32b7f7-0aec-4000-aae3-30436017453e) |
+| ![메인 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/9a2cf9ba-a447-4963-b9fb-df2f11adda68) | ![주식 예측](https://github.com/Choi9912/Django_AIstock/assets/76863081/ff32b7f7-0aec-4000-aae3-30436017453e) |
 
 | 로그인 및 회원가입 | 주식 정보 + 커뮤니티 |
 | --- | --- |
-| ![강좌 소개 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) | ![강의 영상 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) |
+| ![로그인 및 회원가입](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) | ![주식정보 + 커뮤니티](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) |
