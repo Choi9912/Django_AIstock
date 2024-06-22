@@ -12,6 +12,7 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 **프로젝트 기간 : 2022.09.01~2022.10.15**
 ## 프로젝트 소개
 이 Django 프로젝트 사용자인증, LSTM을 활용한 주식예측 프로그램, 주식 관련 게시판기능, 스크래핑한 주식 정보를 포함한 웹 애플리케이션입니다 주요기능은 다음과 같습니다
+
 - 주식 예측
  - Pytorch를 활용해서 LSTM모델 구축
 - 주식 관련 게시판 기능과 자유로운 댓글 작성 가능 
