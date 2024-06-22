@@ -42,9 +42,11 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
   <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=white"> <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white"> 
 
 ## 화면 구성 📺
-| 메인 페이지  |  소개 페이지   |
-| :-------------------------------------------: | :------------: |
-|  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036645-a76cf400-85bc-4fa2-af72-86d2abf61366.png"/>|  
-| 강좌 소개 페이지   |  강의 영상 페이지   |  
-| <img width="329" src="https://user-images.githubusercontent.com/50205887/208038737-2b32b7d2-25f4-4949-baf5-83b5c02915a3.png"/>   |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208038965-43a6318a-7b05-44bb-97c8-b08b0495fba7.png"/>     |
 
+| 메인 페이지 | 주식 예측 프로그램 |
+| --- | --- |
+| ![메인 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/9a2cf9ba-a447-4963-b9fb-df2f11adda68) | ![소개 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/ff32b7f7-0aec-4000-aae3-30436017453e) |
+
+| 로그인 및 회원가입 | 주식 정보 + 커뮤니티 |
+| --- | --- |
+| ![강좌 소개 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) | ![강의 영상 페이지](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) |
