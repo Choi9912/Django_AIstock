@@ -20,7 +20,7 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 - 주식 정보
   - 스크래핑을 통해 정보 전달
  - 
-# 파일명
+## 파일명
 - APP : 주식예측
 - Acoounts : 로그인 및 회원가입
 - blog : 게시판
