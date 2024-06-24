@@ -19,7 +19,7 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
   - MySql과 연동하여 주식 관련 정보 전달 및 자유로운 댓글 작성
 - 주식 정보
   - 스크래핑을 통해 정보 전달
- - 
+    
 ## 파일명
 - APP : 주식예측
 - Acoounts : 로그인 및 회원가입
