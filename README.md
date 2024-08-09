@@ -74,5 +74,5 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 | ![로그인 및 회원가입](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) | ![주식정보 + 커뮤니티](https://github.com/Choi9912/Django_AIstock/assets/76863081/2f2a77c4-d2bb-4547-8ebf-cbaa6fdb4baa) |
 
 ## 개선 사항
-- 2022.09.20 장기 or 단기 투자 컨셉 추가
-- 2024.08.09 코드 리펙토링
+- **2022.09.20 장기 or 단기 투자 컨셉 추가**
+- **2024.08.09 코드 리펙토링**
