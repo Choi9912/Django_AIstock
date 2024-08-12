@@ -5,6 +5,10 @@ https://www.mju.ac.kr/ict/2832/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGaWN0JTJGND
 **개발인원: 최규성(팀장), 김소명, 오우준, 임수한**</br>
 **프로젝트 기간 : 2022.09.01~2022.10.15**</br>
 
+## 프로젝트 아키텍처
+![Untitled](https://github.com/user-attachments/assets/f262ec69-7f03-4029-81ce-e611afbe1728)
+
+
 ## 프로젝트 소개
 이 Django 프로젝트 사용자인증, LSTM을 활용한 주식예측 프로그램, 주식 관련 게시판기능, 스크래핑한 주식 정보를 포함한 웹 애플리케이션입니다 주요기능은 다음과 같습니다
 
