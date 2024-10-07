@@ -1,51 +1,49 @@
-from django.core.paginator import Paginator
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import Board
+from .forms import BoardForm
 
-# Create your views here.
-from .forms import *
-from .models import *
 
 def home(request):
-    return render(request, 'base1.html')
+    return render(request, "home.html")
+
 
 def board(request):
-    if request.method == 'POST':
-        title = request.POST['title']
-        content = request.POST['content']
-        user = request.user
-        board = Board(
-            title=title,
-            content=content,
-            user=user,
-        )
-        board.save()
-
-        return redirect('board')
-    else:
-        boardForm = BoardForm
-        board = Board.objects.all()
-        context = {
-            'boardForm': boardForm,
-            'board': board,
-        }
-        return render(request, 'board.html', context)
-
-def boardEdit(request, pk):
-    board = Board.objects.get(id=pk)
     if request.method == "POST":
-        board.title = request.POST['title']
-        board.content = request.POST['content']
-        board.user = request.user
-
-        board.save()
-        return redirect('board')
-
+        form = BoardForm(request.POST)
+        if form.is_valid():
+            board = form.save(commit=False)
+            board.user = request.user
+            board.save()
+            return redirect("board")
     else:
-        boardForm = BoardForm
-        return render(request, 'update.html', {'boardForm':boardForm})
+        form = BoardForm()
 
-def boardDelete(request, pk):
-    board = Board.objects.get(id=pk)
+    boards = Board.objects.all()
+    context = {
+        "boardForm": form,
+        "board": boards,  # 기존 게시글 목록
+    }
+    return render(request, "board.html", context)
+
+
+@login_required
+def board_edit(request, pk):
+    board = get_object_or_404(Board, pk=pk)
+    if request.method == "POST":
+        form = BoardForm(request.POST, instance=board)
+        if form.is_valid():
+            board = form.save(commit=False)
+            board.user = request.user
+            board.save()
+            return redirect("board")
+    else:
+        form = BoardForm(instance=board)
+    return render(request, "board_edit.html", {"form": form})
+
+
+@login_required
+def board_delete(request, pk):
+    board = get_object_or_404(Board, pk=pk)
     board.delete()
-    return redirect('board')
-
+    return redirect("board")

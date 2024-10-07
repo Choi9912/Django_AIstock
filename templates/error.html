@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">오류가 발생했습니다!</h4>
+        <p>{{ error_message }}</p>
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-primary">홈으로 돌아가기</a>
+</div>
+{% endblock %}

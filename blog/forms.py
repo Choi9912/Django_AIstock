@@ -1,7 +1,8 @@
-from django.forms import ModelForm
-from .models import *
+from django import forms
+from .models import Board
 
-class BoardForm(ModelForm):
+
+class BoardForm(forms.ModelForm):
     class Meta:
         model = Board
-        fields = ['title', 'content']
+        fields = ["title", "content"]  # 필요한 필드만 포함
